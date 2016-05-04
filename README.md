@@ -1,10 +1,10 @@
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+
+Heroku Url : https://serene-waters-59506.herokuapp.com/
+
+Orders: https://serene-waters-59506.herokuapp.com/orders
+Items: https://serene-waters-59506.herokuapp.com/items
+Users: https://serene-waters-59506.herokuapp.com/users/sign_up
 
 
 Welcome to your Rails project on Cloud9 IDE!

@@ -1,0 +1,131 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+body{
+    margin: 0;
+}
+
+#header{
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    #user{
+		position: fixed;
+		top:0;
+		left: 0;
+		width: 100%;
+		padding: 0 3em;
+		background: #363b3f;
+		color: #9eafba;
+		z-index: 99;
+		height: 32px;
+		p {
+			display: inline;
+		}
+		a {
+			color: #9eafba;
+			text-decoration: none;
+		}
+		.buttons {
+			float: right;
+			margin-top: -6px;
+			.button {
+				font-size: .8em;
+				margin-left: .5em;
+			}
+		}  
+		nav {
+			float: left;
+			text-align: center;
+		}
+		
+		nav ul ul {
+			display: none;
+		}
+		
+			nav ul li:hover > ul {
+				display: block;
+			}
+		
+		
+		nav ul {
+			padding: 0 ;
+			list-style: none;
+			position: relative;
+			display: inline-table;
+			-webkit-margin-before: 0;
+			-webkit-margin-after: 0;
+		}
+			nav ul:after {
+				content: ""; clear: both; display: block;
+			}
+		
+			nav ul li {
+				float: left;
+			}
+				nav ul li:hover {
+					background: #4b545f;
+					background: linear-gradient(top, #4f5964 0%, #5f6975 40%);
+					background: -moz-linear-gradient(top, #4f5964 0%, #5f6975 40%);
+					background: -webkit-linear-gradient(top, #4f5964 0%,#5f6975 40%);
+				}
+					nav ul li:hover a {
+						color: #fff;
+					}
+				
+				nav ul li a {
+					display: block;
+					padding: 6px 30px 0 30px;
+					height: 26px;
+					font-size: 13px;
+					vertical-align: middle;
+					text-align: left;
+					color: #eee;
+					text-decoration: none;
+				}
+					
+				
+			nav ul ul {
+				background: #5f6975;
+				border-radius: 0px;
+				padding: 0;
+				position: absolute;
+				top: 100%;
+			}
+				nav ul ul li {
+					float: none; 
+					border-top: 1px solid #6b727c;
+					border-bottom: 1px solid #575f6a;
+					position: relative;
+				}
+					nav ul ul li a {
+						padding: 6px 40px 0 10px;
+						color: #fff;
+					}	
+						nav ul ul li a:hover {
+							background: #4b545f;
+						}
+				
+			nav ul ul ul {
+				position: absolute; left: 100%; top:0;
+			}
+    }
+}
+
+#container{
+    width: 100%;
+    padding: 5px;
+}
+

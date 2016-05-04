@@ -7,8 +7,44 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="header">
+  <div id="user">
+    <% if user_signed_in? %>
+      <nav style="float: right; margin-right: 100px;">
+        <ul>
+          <li><%= link_to("My Account", root_path + "dashboard") %>
+            <ul>
+              <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    
+    <% else %>
+      <nav style="float: right; margin-right: 100px;">
+        <ul>
+          <li><%= link_to("My Account", root_path + "users/sign_in") %>
+            <ul>
+              <li><%= link_to("Sign In", root_path + "users/sign_in") %></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      
+    <% end %>
 
-<%= yield %>
+  </div>
+
+  
+  </div>
+  
+  <div id="container">
+    <% if user_signed_in? %>
+      <div>Signed in as... <%= current_user.email %></div>
+    <% end %>
+    <%= yield %>
+  </div>
+  
 
 </body>
 </html>

@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+
+<div id="image">
+  <%= link_to image_tag(@item.image.url(:med)), @item.image.url %>
+</div>
+<div id="item_info">
+  <p>
   <strong>Name:</strong>
   <%= @item.name %>
 </p>
@@ -9,11 +14,10 @@
   <strong>Price:</strong>
   <%= @item.price %>
 </p>
+</div>
 
-<p>
-  <strong>Quantity:</strong>
-  <%= @item.quantity %>
-</p>
+<%= link_to 'Add to Cart', root_url + "myaccount/cart/?item_id=" + @item.id.to_s + "&user_id=" + current_user.id.to_s , method: :post %>
+
 
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>

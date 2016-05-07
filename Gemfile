@@ -32,6 +32,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Devise - This will handel the user registration,login,autentication, and sessions
 gem 'devise'
 
+#Paperclip - image uploading handleing
+gem "paperclip", "~> 5.0.0.beta1"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

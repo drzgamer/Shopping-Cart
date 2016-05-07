@@ -1,4 +1,4 @@
 class Orderlist < ActiveRecord::Base
-    has_one :user
-    has_many :orders
+    belongs_to :user
+    belongs_to :order
 end

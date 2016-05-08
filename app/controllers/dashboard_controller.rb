@@ -6,6 +6,13 @@ class DashboardController < ApplicationController
             @user = User.find(current_user.id)
     end
     def cart
+            @user = User.find(current_user.id)
+            if @user.items
+                @cart = @user.items
+            else
+                @cart = nil
+            end
+            
     end
     
     def addcart

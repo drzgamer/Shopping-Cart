@@ -6,9 +6,6 @@ class DashboardController < ApplicationController
             @user = User.find(current_user.id)
     end
     def cart
-            @user = User.find(current_user.id)
-            @cart = @user.items
-            print @cart.to_json
     end
     
     def addcart

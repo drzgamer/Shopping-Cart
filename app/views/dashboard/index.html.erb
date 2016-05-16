@@ -1,1 +1,6 @@
-<%= @user.id %>
+<%= if user_signed_in?
+current_user.id
+else
+session.id
+end
+%>

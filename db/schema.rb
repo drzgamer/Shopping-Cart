@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160507062809) do
+ActiveRecord::Schema.define(version: 20160510144404) do
 
   create_table "carts", force: :cascade do |t|
     t.integer  "User_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20160507062809) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "quantity"
+    t.string   "session_id"
   end
 
   create_table "itemlists", force: :cascade do |t|
@@ -28,6 +29,17 @@ ActiveRecord::Schema.define(version: 20160507062809) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "itemorders", force: :cascade do |t|
+    t.integer  "item_id"
+    t.integer  "order_id"
+    t.integer  "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "itemorders", ["item_id"], name: "index_itemorders_on_item_id"
+  add_index "itemorders", ["order_id"], name: "index_itemorders_on_order_id"
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
@@ -43,7 +55,7 @@ ActiveRecord::Schema.define(version: 20160507062809) do
 
   create_table "orderlists", force: :cascade do |t|
     t.integer  "User_id"
-    t.integer  "Orders_id"
+    t.integer  "Order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -6,10 +6,14 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          
-         has_many :orders, through: :orderlists
-         has_many :orderlists
-         
-         has_many :carts
-         has_many :items, through: :carts
+  has_many :orders, through: :orderlists
+  has_many :orderlists
+   
+  has_many :carts
+  has_many :items, through: :carts
+  
+  def after_database_authentication
+    print "hellp"
+  end
          
 end

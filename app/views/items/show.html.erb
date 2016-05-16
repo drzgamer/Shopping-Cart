@@ -16,7 +16,7 @@
 </p>
 </div>
 
-<%= link_to 'Add to Cart', root_url + "myaccount/cart/?item_id=" + @item.id.to_s + "&user_id=" + current_user.id.to_s , method: :post %>
+<%= link_to 'Add to Cart', root_url + "myaccount/cart/" + @item.id.to_s, method: :post %>
 
 
 <%= link_to 'Edit', edit_item_path(@item) %> |

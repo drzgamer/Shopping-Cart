@@ -9,3 +9,4 @@ Item.create(name: "Wine", price: 12.99, quantity: 10)
 Item.create(name: "Beer", price: 2.99, quantity: 10)
 Item.create(name: "Chicken", price: 3.99, quantity: 10)
 Item.create(name: "Steak", price: 4.99, quantity: 10)
+

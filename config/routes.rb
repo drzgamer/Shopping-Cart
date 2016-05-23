@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   
   root 'dashboard#index'
   
+  resources :users
+  
   get 'myaccount' => 'dashboard#index'
   get 'myaccount/cart' => 'dashboard#cart'
   delete 'myaccount/cart/:id' => 'dashboard#deletecart'

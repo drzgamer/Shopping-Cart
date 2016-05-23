@@ -1,48 +1,51 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Workspace</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div id="header">
-  <div id="user">
-    <% if user_signed_in? %>
-      <nav style="float: right; margin-right: 100px;">
-        <ul>
-          <li><%= link_to("My Account", root_path + "dashboard") %>
-            <ul>
-              <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    
-    <% else %>
-      <nav style="float: right; margin-right: 100px;">
-        <ul>
-          <li><%= link_to("My Account", root_path + "users/sign_in") %>
-            <ul>
-              <li><%= link_to("Sign In", root_path + "users/sign_in") %></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
+  <head>
+    <title>Workspace</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="header">
+    <div id="user">
+      <% if false %>
+        <nav style="float: right; margin-right: 100px;">
+          <ul>
+            <li><%= link_to("My Account", root_path + "dashboard") %>
+              <ul>
+                <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
       
-    <% end %>
-
-  </div>
-
+      <% else %>
+        <nav style="float: right; margin-right: 100px;">
+          <ul>
+            <li><%= link_to("My Account", root_path + "users/sign_in") %>
+              <ul>
+                <li><%= link_to("Sign In", root_path + "users/sign_in") %></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        
+      <% end %>
   
-  </div>
+    </div>
   
-  <div id="container">
-    <%= yield %>
-  </div>
-  
-
-</body>
+    
+    </div>
+    
+    <div id="container">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      <%= yield %>
+    </div>
+    
+    <%= debug(params) if Rails.env.development? %>
+  </body>
 </html>

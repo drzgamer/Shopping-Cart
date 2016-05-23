@@ -1,43 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Workspace</title>
+    <title>Shopping Extravaganza | <%= yield(:title) %></title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div id="header">
-    <div id="user">
-      <% if false %>
-        <nav style="float: right; margin-right: 100px;">
-          <ul>
-            <li><%= link_to("My Account", root_path + "dashboard") %>
-              <ul>
-                <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </li>
-              </ul>
-            </li>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to "sample app", root_path, id: "logo" %>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Home", root_path %></li>
+            <% if logged_in? %>
+              <li><%= link_to "Users", '#' %></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  Account <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "Profile", current_user %></li>
+                  <li><%= link_to "Settings", '#' %></li>
+                  <li class="divider"></li>
+                  <li>
+                    <%= link_to "Log out", logout_path, method: "delete" %>
+                  </li>
+                </ul>
+              </li>
+            <% else %>
+              <li><%= link_to "Log in", login_path %></li>
+            <% end %>
           </ul>
         </nav>
-      
-      <% else %>
-        <nav style="float: right; margin-right: 100px;">
-          <ul>
-            <li><%= link_to("My Account", root_path + "users/sign_in") %>
-              <ul>
-                <li><%= link_to("Sign In", root_path + "users/sign_in") %></li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-        
-      <% end %>
-  
-    </div>
-  
-    
-    </div>
+      </div>
+    </header>
     
     <div id="container">
       <% flash.each do |message_type, message| %>

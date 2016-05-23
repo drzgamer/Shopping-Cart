@@ -7,7 +7,7 @@
           <div id="item">
             <%= image_tag(item.image.url(:thumbnail))%>
             <%= item.name %>
-            <% if current_user.try(:isadmin?) %>
+            <% if false #current_user.try(:isadmin?) %>
               <%= link_to 'Edit', edit_item_path(item) %>
             <% end %>
             
@@ -22,7 +22,7 @@
 
 
 <br>
-<% if current_user.try(:isadmin?) %>
+<% if false #current_user.try(:isadmin?) %>
   <%= link_to 'New Item', new_item_path %>
 <% end %>
 

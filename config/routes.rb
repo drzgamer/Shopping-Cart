@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   
   root 'dashboard#index'
   
+  get 'signup'  => 'users#new'
+  
   resources :users
   
   get 'myaccount' => 'dashboard#index'

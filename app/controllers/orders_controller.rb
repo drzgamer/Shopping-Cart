@@ -26,7 +26,6 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
-    User.find(1).orders
 
     respond_to do |format|
       if @order.save
@@ -75,8 +74,8 @@ class OrdersController < ApplicationController
     end
     
     def signed_in
-      if !user_signed_in?
-        redirect_to root_url + "users/sign_in"
-      end
+    #   if !user_signed_in?
+    #     redirect_to root_url + "users/sign_in"
+    #   end
     end
 end

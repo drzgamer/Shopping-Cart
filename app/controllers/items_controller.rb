@@ -23,9 +23,9 @@ class ItemsController < ApplicationController
   end
   
   def areyouadmin
-    if !current_user.try(:isadmin?)
-      redirect_to root_url
-    end
+    # if !current_user.try(:isadmin?)
+    #   redirect_to root_url
+    # end
   end
 
   # POST /items

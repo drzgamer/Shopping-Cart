@@ -1,22 +1,29 @@
 <p id="notice"><%= notice %></p>
 
+<%= form_tag root_url + "myaccount/cart/" + @item.id.to_s do %>
 
-<div id="image">
-  <%= link_to image_tag(@item.image.url(:med)), @item.image.url %>
-</div>
-<div id="item_info">
-  <p>
-  <strong>Name:</strong>
-  <%= @item.name %>
-</p>
-
-<p>
-  <strong>Price:</strong>
+  <div class="field">
+    <%= link_to image_tag(@item.image.url(:med)), @item.image.url %>
+    <%= print @item.image %>
+  </div>
+  
+  <div class="field">
+    <strong>Name:</strong>
+    <%= @item.name %>
+  </div>
+  <div class="field">
+    <strong>Price:</strong>
   <%= @item.price %>
-</p>
-</div>
-
-<%= link_to 'Add to Cart', root_url + "myaccount/cart/" + @item.id.to_s, method: :post %>
+  </div>
+  <div class="field">
+    <strong>Quantity (between 1 and <%= @item.quantity %>):</strong>
+    <%= number_field_tag :quantity,'1', min: 1, max: @item.quantity %>
+  </div>
+  
+  <div class="actions">
+    <%= submit_tag "Add To Cart"%>
+  </div>
+<% end %>
 
 
 <%= link_to 'Edit', edit_item_path(@item) %> |

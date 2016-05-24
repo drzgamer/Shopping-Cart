@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   resources :items
+  resources :carts
   
   root 'dashboard#index'
   
@@ -15,9 +16,9 @@ Rails.application.routes.draw do
   
   
   get 'myaccount' => 'dashboard#index'
-  get 'myaccount/cart' => 'dashboard#cart'
-  delete 'myaccount/cart/:id' => 'dashboard#deletecart'
-  post 'myaccount/cart/:id' => 'dashboard#addcart'
+  get 'cart' => 'carts#index'
+  delete 'cart/:id' => 'carts#deletecart'
+  post 'cart/:id' => 'carts#addcart'
   resources :orders, path: '/myaccount/orders'
   
   

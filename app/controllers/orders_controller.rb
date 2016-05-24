@@ -74,8 +74,8 @@ class OrdersController < ApplicationController
     end
     
     def signed_in
-    #   if !user_signed_in?
-    #     redirect_to root_url + "users/sign_in"
-    #   end
+       if !logged_in?
+         redirect_to root_url + "users/sign_in"
+       end
     end
 end

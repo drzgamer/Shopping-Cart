@@ -40,5 +40,9 @@ class User < ActiveRecord::Base
   
   has_many :orders
   
+  has_many :items, through: :carts
+  has_many :carts
+  
+  
   
 end

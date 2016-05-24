@@ -3,6 +3,14 @@ module SessionsHelper
   # Logs in the given user.
   def log_in(user)
     session[:user_id] = user.id
+    @cart = Cart.where session_id: session.id
+    if @cart != nil
+        @cart.each do |c|
+            c.user_id = user.id
+            c.session_id = nil
+            c.save
+        end
+    end
   end
   
   # Logs out the current user.

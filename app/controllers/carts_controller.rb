@@ -1,20 +1,13 @@
-class DashboardController < ApplicationController
+class CartsController < ApplicationController
     before_action :setitem, only: [:deletecart] 
     
     def index
-        
-    end
-    def cart
         if logged_in?
             @user = User.find(current_user.id)
             @cart = @user.carts
         else
             @cart = Item.joins(:carts).where(:carts => {:session_id => session.id})
         end
-        
-        
-
-            
     end
     
     def addcart
@@ -58,11 +51,5 @@ class DashboardController < ApplicationController
     def setitem
         @item = Cart.find_by item_id: params[:id]
         
-    end
-    
-    def signedin
-        if !user_signed_in?
-            redirect_to root_url + "users/sign_in"
-        end
     end
 end

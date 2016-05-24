@@ -1,0 +1,24 @@
+<h1>Your Cart</h1>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Quantitiy</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cart.each do |cart| %>
+      <tr>
+        <td><%= image_tag(cart.itemz.image.url(:tiny))%></td>
+        <td><%= cart.itemz.name %></td>
+        <td><%= cart.itemz.price %></td>
+        <td align = "center"><%= cart.quantity %></td>
+        <td><%= link_to 'Remove', root_url + "myaccount/cart/" + cart.id.to_s , method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

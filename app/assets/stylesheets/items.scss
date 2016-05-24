@@ -4,6 +4,9 @@
 
 
 #item_collection{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
     #item{
         width: 130px;
         height: 200px;

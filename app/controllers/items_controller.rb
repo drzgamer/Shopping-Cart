@@ -22,11 +22,7 @@ class ItemsController < ApplicationController
   def edit
   end
   
-  def areyouadmin
-    # if !current_user.try(:isadmin?)
-    #   redirect_to root_url
-    # end
-  end
+  
 
   # POST /items
   # POST /items.json
@@ -77,5 +73,11 @@ class ItemsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
       params.require(:item).permit(:name, :price, :quantity,:image)
+    end
+    
+    def areyouadmin
+     if !current_user.try(:isadmin)
+       redirect_to root_url
+     end
     end
 end

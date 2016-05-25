@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    before_action :signed_in, only: [:new]
     
     def show
         @user = User.find(params[:id])
@@ -24,5 +25,11 @@ class UsersController < ApplicationController
         def user_params
           params.require(:user).permit(:name, :email, :password,
                                        :password_confirmation)
+        end
+        
+        def signed_in
+            if logged_in?
+             redirect_to root_url
+            end
         end
 end

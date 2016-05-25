@@ -4,7 +4,7 @@ Heroku Url : https://dry-mesa-76339.herokuapp.com/
 
 Orders: https://dry-mesa-76339.herokuapp.com/orders
 Items: https://dry-mesa-76339.herokuapp.com/items
-Users: https://dry-mesa-76339.herokuapp.com/users/sign_up 
+Users: https://dry-mesa-76339.herokuapp.com/signup 
 
 
 Welcome to your Rails project on Cloud9 IDE!

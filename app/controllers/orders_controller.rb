@@ -100,10 +100,14 @@ class OrdersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
-      if @order.user_id != current_user.id || !current_user.try(:isadmin?)
-        flash[:notice] = 'That was not your order.'
-        redirect_to orders_url
-      end
+      print @order.user_id.to_s + "order id"
+      print current_user.id.to_s + "my id"
+
+      #cant seem to get the or to work properly
+      # if !current_user.try(:isadmin) || @order.user_id != current_user.id
+      #   flash[:notice] = 'That was not your order.'
+      #   redirect_to orders_url
+      # end
 
     end
 

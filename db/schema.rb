@@ -14,21 +14,14 @@
 ActiveRecord::Schema.define(version: 20160523055318) do
 
   create_table "carts", force: :cascade do |t|
-    t.integer  "User_id"
-    t.integer  "item_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "quantity"
     t.string   "session_id"
   end
 
-  create_table "itemlists", force: :cascade do |t|
-    t.integer  "order_id"
-    t.integer  "item_id"
-    t.integer  "Quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+  add_index "carts", ["user_id"], name: "index_carts_on_user_id"
 
   create_table "itemorders", force: :cascade do |t|
     t.integer  "item_id"
@@ -45,21 +38,12 @@ ActiveRecord::Schema.define(version: 20160523055318) do
     t.string   "name"
     t.decimal  "price"
     t.integer  "quantity"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.decimal  "total"
-    t.datetime "datetime"
-    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+# Could not dump table "orders" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

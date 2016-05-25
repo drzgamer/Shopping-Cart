@@ -3,6 +3,8 @@
 <h1>Listing Items</h1>
 <div id="item_collection">
     <% @items.each do |item| %>
+        <% if item.quantity <= 0 %>
+        <% else %>
         <a href="<%= root_url + "items/" + item.id.to_s %>">
           <div id="item">
             <%= image_tag(item.image.url(:thumbnail))%>
@@ -15,7 +17,7 @@
         </a>
 
 
-
+        <% end %>
     <% end %>
   
 </div>

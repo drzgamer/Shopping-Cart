@@ -3,23 +3,27 @@ Rails.application.routes.draw do
 
   resources :items
   resources :carts
+  resources :users
   
   root 'dashboard#index'
   
+  
   get 'signup'  => 'users#new'
-  
-  resources :users
-  
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   
   
-  get 'myaccount' => 'dashboard#index'
+  resources :orders, except: [:create, :new]
+  post 'orders/placeorder' => 'orders#placeorder'
+  get 'allorders' => 'orders#all'
+  
   get 'cart' => 'carts#index'
   delete 'cart/:id' => 'carts#deletecart'
   post 'cart/:id' => 'carts#addcart'
-  resources :orders, path: '/myaccount/orders'
+  
+  
+  
   
   
 end

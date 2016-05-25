@@ -8,5 +8,9 @@ class Cart < ActiveRecord::Base
         return @item
     end
     
-    
+    def updateqty(quantity)
+        @item = Item.find(self.item_id)
+        @item.quantity = @item.quantity - quantity
+        @item.save
+    end
 end

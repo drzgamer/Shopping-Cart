@@ -38,10 +38,10 @@ class User < ActiveRecord::Base
     update_attribute(:remember_digest, nil)
   end
   
-  has_many :orders
+  has_many :orders, dependent: :nullify
   
   has_many :items, through: :carts
-  has_many :carts
+  has_many :carts, dependent: :destroy
   
   
   

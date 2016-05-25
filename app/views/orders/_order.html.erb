@@ -1,0 +1,26 @@
+<div class="datagrid">
+    <table>
+      <thead>
+        <tr>
+          <th>Total</th>
+          <th align="center">Datetime</th>
+          <th colspan="1"></th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <% orders.each do |order| %>
+          <tr>
+            <td><%= order.total %></td>
+            <td><%= order.datetime %></td>
+            <td>
+                <%= link_to 'View', order %>
+                <% if current_user.try(:isadmin?) %>
+                    <%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>    

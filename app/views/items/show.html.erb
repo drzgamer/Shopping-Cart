@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<%= form_tag root_url + "myaccount/cart/" + @item.id.to_s do %>
+<%= form_tag root_url + "cart/" + @item.id.to_s do %>
 
   <div class="field">
     <%= link_to image_tag(@item.image.url(:med)), @item.image.url %>
@@ -26,5 +26,7 @@
 <% end %>
 
 
+<% if current_user.try(:isadmin?) %>
 <%= link_to 'Edit', edit_item_path(@item) %> |
+<% end %>
 <%= link_to 'Back', items_path %>

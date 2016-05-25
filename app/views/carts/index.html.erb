@@ -1,24 +1,28 @@
 <h1>Your Cart</h1>
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Quantitiy</th>
-      <th colspan="1"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @cart.each do |cart| %>
+<div class="datagrid">
+  <table>
+    <thead>
       <tr>
-        <td><%= image_tag(cart.itemz.image.url(:tiny))%></td>
-        <td><%= cart.itemz.name %></td>
-        <td><%= cart.itemz.price %></td>
-        <td align = "center"><%= cart.quantity %></td>
-        <td><%= link_to 'Remove', root_url + "myaccount/cart/" + cart.id.to_s , method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th></th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantitiy</th>
+        <th colspan="1"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+  
+    <tbody>
+      <% @cart.each do |cart| %>
+        <tr>
+          <td align="center"><%= image_tag(cart.item.image.url(:tiny))%></td>
+          <td><%= cart.item.name %></td>
+          <td><%= cart.item.price %></td>
+          <td align = "center"><%= cart.quantity %></td>
+          <td><%= link_to 'Remove', root_url + "cart/" + cart.id.to_s , method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<td><%= link_to 'Place Order', root_url + "orders/placeorder", method: :post, data: { confirm: 'Place order?' } %></td>

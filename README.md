@@ -1,10 +1,17 @@
 
 
-Heroku Url : https://dry-mesa-76339.herokuapp.com/ 
+Heroku Url : https://afternoon-springs-95355.herokuapp.com/
 
-Orders: https://dry-mesa-76339.herokuapp.com/orders
-Items: https://dry-mesa-76339.herokuapp.com/items
-Users: https://dry-mesa-76339.herokuapp.com/signup 
+Admin Account 
+email: admin@admin.com
+password: adminpassword
+
+Regular User
+email: bobjohn@coolbeans.com
+password: coolpassword
+
+Or you can create your own regular user.
+
 
 
 Welcome to your Rails project on Cloud9 IDE!
